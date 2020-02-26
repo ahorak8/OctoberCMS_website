@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME', ''),
+    'username' => env('MAIL_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD', ''),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
@@ -108,5 +108,12 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+
+    // This is for testing, will send everything to the specified email. 
+    // Take out after testing!!
+    'to' => [
+        'address' => env('MAIL_TO'),
+        'name' => 'Catch all email'
+    ]
 
 ];

@@ -1,0 +1,6 @@
+plugin:
+    name: 'ahorak.contact::lang.plugin.name'
+    description: 'ahorak.contact::lang.plugin.description'
+    author: ahorak
+    icon: oc-icon-edit
+    homepage: ''
