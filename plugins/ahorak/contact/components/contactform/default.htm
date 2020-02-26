@@ -2,13 +2,23 @@
 
     <label>Name:</label>
     <input type="text" name="name"><br>
+    {{ errors.first('name') }} <br>
 
     <label>Email:</label>
     <input type="email" name="email"><br>
+    {{ errors.first('email') }} <br>
 
     <label>Message:</label><br>
     <textarea name="content"></textarea><br>
 
     <button type="submit">Send</button>
-    
+
+    <br>
+
+    <ul>
+        {% for error in errors.all() %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+
 </form>
