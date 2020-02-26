@@ -1,0 +1,10 @@
+name: Actors
+form: $/ahorak/movies/models/actor/fields.yaml
+modelClass: Ahorak\Movies\Models\Actor
+defaultRedirect: ahorak/movies/actors
+create:
+    redirect: 'ahorak/movies/actors/update/:id'
+    redirectClose: ahorak/movies/actors
+update:
+    redirect: ahorak/movies/actors
+    redirectClose: ahorak/movies/actors

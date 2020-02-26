@@ -1,0 +1,10 @@
+name: Movies
+form: $/ahorak/movies/models/movie/fields.yaml
+modelClass: Ahorak\Movies\Models\Movie
+defaultRedirect: ahorak/movies/movies
+create:
+    redirect: 'ahorak/movies/movies/update/:id'
+    redirectClose: ahorak/movies/movies
+update:
+    redirect: ahorak/movies/movies
+    redirectClose: ahorak/movies/movies

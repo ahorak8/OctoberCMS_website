@@ -1,0 +1,50 @@
+title = "Movie"
+url = "/movie/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Ahorak\Movies\Models\Movie"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    <!-- {{ attribute(record, displayColumn) }} -->
+    <h2>{{ record.name }}</h2>
+    
+    <img src="{{ record.poster.thumb(200,auto) }}"> 
+
+    <ul>
+        {% for image in record.movie_gallery %}
+            <!-- <li> -->
+                <img src="{{ image.thumb(80,auto) }}"> 
+            <!-- </li> -->
+            
+        {% endfor %}
+    </ul>
+    
+    <h4>{{ record.year }}</h4>
+
+    <h3>Actors:</h3>
+    {% for actor in record.actors %}
+        {{ actor.name }}
+        {{ actor.lastname }}
+    {% endfor %}
+
+    <h3>Description:</h3>
+    {{ record.description | raw }}
+
+    <h4>Genres:</h4>
+    {% for genre in record.genres %}
+        <a href="/genres/{{ genre.slug }}">{{ genre.genre_title}}</a> <br> 
+    {% endfor %}
+
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

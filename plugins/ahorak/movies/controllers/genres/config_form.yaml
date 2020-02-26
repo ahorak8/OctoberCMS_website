@@ -1,0 +1,10 @@
+name: Genres
+form: $/ahorak/movies/models/genre/fields.yaml
+modelClass: Ahorak\Movies\Models\Genre
+defaultRedirect: ahorak/movies/genres
+create:
+    redirect: 'ahorak/movies/genres/update/:id'
+    redirectClose: ahorak/movies/genres
+update:
+    redirect: ahorak/movies/genres
+    redirectClose: ahorak/movies/genres

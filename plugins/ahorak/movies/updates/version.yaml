@@ -1,0 +1,32 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table ahorak_movies_'
+    - builder_table_create_ahorak_movies_.php
+1.0.3:
+    - 'Updated table ahorak_movies_'
+    - builder_table_update_ahorak_movies_.php
+1.0.4:
+    - 'Created table ahorak_movies_genres'
+    - builder_table_create_ahorak_movies_genres.php
+1.0.5:
+    - 'Created table ahorak_movies_movies_genres'
+    - builder_table_create_ahorak_movies_movies_genres.php
+1.0.6:
+    - 'Updated table ahorak_movies_'
+    - builder_table_update_ahorak_movies__2.php
+1.0.7:
+    - 'Updated table ahorak_movies_'
+    - builder_table_update_ahorak_movies__3.php
+1.0.8:
+    - 'Updated table ahorak_movies_'
+    - builder_table_update_ahorak_movies__4.php
+1.0.9:
+    - 'Created table ahorak_movies_actors'
+    - builder_table_create_ahorak_movies_actors.php
+1.0.10:
+    - 'Updated table ahorak_movies_'
+    - builder_table_update_ahorak_movies__5.php
+1.0.11:
+    - 'Created table ahorak_movies_actors_movies'
+    - builder_table_create_ahorak_movies_actors_movies.php

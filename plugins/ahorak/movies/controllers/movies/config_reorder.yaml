@@ -1,0 +1,4 @@
+title: Movies
+modelClass: Ahorak\Movies\Models\Movie
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,13 @@
+<!-- Using php twig 'set function' to set the actors variable to be on this page -->
+{% set actors = __SELF__.actors %}
+
+<!-- Use twig to display -->
+
+<ul>
+    {% for actor in actors %}
+        <li>
+            {{ actor.name }} {{ actor.lastname }}
+        </li>
+    {% endfor %}
+</ul>
+

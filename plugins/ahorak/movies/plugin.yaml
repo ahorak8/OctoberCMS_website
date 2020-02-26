@@ -1,0 +1,20 @@
+plugin:
+    name: Movies
+    description: 'ahorak.movies::lang.plugin.description'
+    author: ahorak
+    icon: oc-icon-video-camera
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Movies
+        url: ahorak/movies/movies
+        icon: icon-video-camera
+        sideMenu:
+            side-menu-item:
+                label: Genres
+                url: ahorak/movies/genres
+                icon: icon-tag
+            side-menu-item2:
+                label: Actors
+                url: ahorak/movies/actors
+                icon: icon-user
