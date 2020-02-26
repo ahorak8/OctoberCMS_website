@@ -7,7 +7,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [       // Return an array of components that we have
-            'Ahorak\Movies\Components\Actors' => 'actors' // Assign the component an alias
+            'Ahorak\Movies\Components\Actors' => 'actors', // Assign the component an alias
+            'Ahorak\Movies\Components\ActorForm' => 'actorform' // Assign the component an alias
         ];
     }
 
