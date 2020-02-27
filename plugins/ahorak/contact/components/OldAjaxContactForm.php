@@ -10,35 +10,41 @@ use Validator; // Needed to validate the form
 
 use Redirect; // Needed to redirect page after validation
 
-use ValidationException; // Used for new Ajax Validation method
-
-class AjaxContactForm extends ComponentBase {
+class OldAjaxContactForm extends ComponentBase {
 
     // Define component details
 
     public function componentDetails() {
         return [
-            'name' => 'Contact Form (Ajax)',
-            'description' => 'Simple contact form (ajax validation)'
+            'name' => 'OLD Contact Form (Ajax)',
+            'description' => 'Simple contact form (ajax validation) - old method'
         ];
     }
 
     public function onSend() { // This will be bound to our contact form
 
-        $data = post(); // grab all data coming from the contact form
-
-        $rules = 
+        $validator = Validator::make(
+            [
+                'name' => Input::get('name'),
+                'email' => Input::get('email')
+            ],
             [
                 'name' => 'required',
                 'email' => 'required|email'
-            ];
-
-        $validator = Validator::make($data, $rules);
+            ]
+        );
         
         if($validator->fails()) {
             // Don't send email. Send error
 
-            throw new ValidationException($validator);
+            // Render a partial that doesn't need a page reload to work
+            return ['#result' => $this->renderPartial('oldajaxcontactform::messages', [
+                'errorMsgs' => $validator->messages()->all(), // Display all below form
+                'fieldMsgs' => $validator->messages() // To display under each field
+            ])
+            ];
+
+            // Find the result div, render a partial in it, from messages.htm . Send data to the partial
             
         } else {
             // Send email

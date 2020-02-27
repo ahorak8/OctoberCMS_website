@@ -8,7 +8,8 @@ class Plugin extends PluginBase
     {
         return [
             'Ahorak\Contact\Components\ContactForm' => 'contactform',
-            'Ahorak\Contact\Components\AjaxContactForm' => 'ajaxcontactform',
+            'Ahorak\Contact\Components\OldAjaxContactForm' => 'oldajaxcontactform', // Old method
+            'Ahorak\Contact\Components\AjaxContactForm' => 'ajaxcontactform', // Easy new method
         ];
     }
 
