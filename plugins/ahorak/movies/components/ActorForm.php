@@ -29,6 +29,7 @@ class ActorForm extends ComponentBase {
 
         $actor->name = Input::get('name'); //set name 
         $actor->lastname = Input::get('lastname'); //set last name
+        $actor->actorimage = Input::file('actorimage'); // Set actor image 
 
         $actor->save(); // save actor
 

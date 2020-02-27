@@ -37,6 +37,10 @@ class Actor extends Model
         ]
     ];
 
+    public $attachOne = [
+        'actorimage' => 'System\Models\File'
+    ];
+
     // Accessor
     public function getFullNameAttribute() { 
         // attribute will be called as full_name
