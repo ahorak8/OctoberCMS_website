@@ -1,0 +1,6 @@
+plugin:
+    name: 'ahorak.profile::lang.plugin.name'
+    description: 'ahorak.profile::lang.plugin.description'
+    author: ahorak
+    icon: oc-icon-user-md
+    homepage: ''
