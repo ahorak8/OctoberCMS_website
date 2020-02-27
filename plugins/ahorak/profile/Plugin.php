@@ -3,6 +3,7 @@
 use System\Classes\PluginBase;
 
 use Rainlab\User\Controllers\Users as UsersController; 
+use Rainlab\User\Models\User as UsersModel; 
 
 class Plugin extends PluginBase
 {
@@ -16,6 +17,13 @@ class Plugin extends PluginBase
 
     public function boot(){
         
+        UsersModel::extend(function($model){
+            $model->addFillable([ //add Fillable fields
+                'facebook',
+                'bio'
+            ]);
+        });
+
         UsersController::extendFormFields(function($form, $model, $context){
             
             $form->addTabFields([
