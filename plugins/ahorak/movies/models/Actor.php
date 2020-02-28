@@ -47,4 +47,6 @@ class Actor extends Model
         return $this->name . " " . $this->lastname; 
         // Returns both values concatenated with a space between
     }
+
+    protected $fillable = array('name', 'lastname');
 }
