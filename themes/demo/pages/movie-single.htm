@@ -3,36 +3,25 @@ url = "/movie/:slug"
 layout = "default"
 is_hidden = 0
 
-[builderDetails]
-modelClass = "Ahorak\Movies\Models\Movie"
-identifierValue = "{{ :slug }}"
-modelKeyColumn = "slug"
-displayColumn = "name"
-notFoundMessage = "Record not found"
 ==
-{% set record = builderDetails.record %}
-{% set displayColumn = builderDetails.displayColumn %}
-{% set notFoundMessage = builderDetails.notFoundMessage %}
+<?php
+    use Ahorak\Movies\Models\Movie;
 
-{% if record %}
-    <!-- {{ attribute(record, displayColumn) }} -->
-    <h2>{{ record.name }}</h2>
-    
-    <img src="{{ record.poster.thumb(200,auto) }}"> 
+    function onStart(){
+        $this['movie'] = Movie::where('slug', '=', $this->param('slug'))->first();
+    }
+?>
+==
 
-    <ul>
-        {% for image in record.movie_gallery %}
-            <!-- <li> -->
-                <img src="{{ image.thumb(80,auto) }}"> 
-            <!-- </li> -->
-            
-        {% endfor %}
-    </ul>
+{% if movie %}
+    <h2>{{ movie.name }}</h2>
     
-    <h4>{{ record.year }}</h4>
+    <img src="{{ movie.poster.thumb(200,auto) }}"> 
+    
+    <h4>{{ movie.year }}</h4>
 
     <h3>Actors:</h3>
-    {% for actor in record.actors %}
+    {% for actor in movie.actors %}
         {{ actor.name }}
         {{ actor.lastname }}
     {% endfor %}
@@ -41,9 +30,11 @@ notFoundMessage = "Record not found"
     {{ record.description | raw }}
 
     <h4>Genres:</h4>
-    {% for genre in record.genres %}
+    {% for genre in movie.genres %}
         <a href="/genres/{{ genre.slug }}">{{ genre.genre_title}}</a> <br> 
     {% endfor %}
+
+    <h3>Gallery:</h3>
 
 {% else %}
     {{ notFoundMessage }}

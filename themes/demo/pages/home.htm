@@ -9,10 +9,38 @@ sortOrder = "name asc"
 
 [siteSearchInclude]
 ==
+<?php
+use Ahorak\Movies\Models\Movie;
+
+function onStart(){
+    $this['movies'] = Movie::take(4)->get();
+}
+?>
+==
+
+<h2> This is the home page</h2>
+
 <form action="{{ 'search' | page }}" method="get">
     <input name="q" type="text" placeholder="What are you looking for?" autocomplete="off">
     <button type="submit">Search</button>
 </form>
 
-<h2> This is the home page</h2>
-{% component 'actors' %}
+<ul class="record-list">
+    {% for movie in movies %}
+        <li>
+            <h3>
+
+                <a href="/movie/{{ movie.slug }}">
+                    {{ movie.name }} - {{ movie.year }}
+                </a>
+
+            </h3>
+
+            {{ movie.description | raw }}
+        </li>
+    {% else %}
+        <li class="no-data">No movies found</li>
+    {% endfor %}
+</ul>
+
+{# {% component 'actors' %} #}
