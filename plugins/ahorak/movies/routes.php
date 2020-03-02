@@ -2,6 +2,7 @@
     
     use Ahorak\Movies\Models\Movie;
     use Ahorak\Movies\Models\Actor;
+    use Ahorak\Movies\Models\Genre;
 
     Route::get('seed-actors', function () { // When someone access this page
         // execute everything in here:
@@ -21,4 +22,12 @@
 
         return "Actors created!";
     });
-?>
+
+    Route::get('sitemap.xml', function(){ //Sitemap
+        $movies = Movie::all();
+
+        $genres = Genre::all();
+
+        // view = template file
+        return Response::view('ahorak.movies::sitemap', ['movies' => $movies, 'genres' => $genres])->header('Content-Type', 'text/xml');
+    });
